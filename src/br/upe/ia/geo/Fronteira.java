@@ -1,27 +1,34 @@
 package br.upe.ia.geo;
 
-public class Mapa {
-	
+public class Fronteira {
+
 	private Municipio caetes, capoeiras, jucati, saoBentoDoUna, jupi, calcados, lajedo, jurema, 
 	canhotinho, saoJoao, paranatama, garanhuns, angelim;
 	
-	public Mapa() {			
+	public Fronteira(int n) {
 		
-		this.angelim = new Municipio("angelim", 0);
-		this.caetes = new Municipio ("caetes", 0);
-		this.calcados = new Municipio ("calcados", 0);
-		this.canhotinho = new Municipio("canhotinho", 0);
-		this.capoeiras = new Municipio ("capoeiras", 0);
-		this.garanhuns = new Municipio("garanhuns", 0);
-		this.jucati = new Municipio ("jucati", 0);
-		this.jupi = new Municipio("jupi", 0);
-		this.jurema = new Municipio("jurema", 0);
-		this.lajedo = new Municipio ("lajedo", 0);
-		this.paranatama = new Municipio("paranatama", 0);
-		this.saoBentoDoUna = new Municipio("saoBentoDoUna", 0);
-		this.saoJoao = new Municipio("saoJoao", 0);
+		Municipios lista = new Municipios();
+		lista.SetDistancias();
 		
-		//--------------------------Arestas--------------------------------------//
+		this.angelim = new Municipio("angelim", lista.SetDistancias()[n][0]);
+		this.caetes = new Municipio ("caetes", lista.SetDistancias()[n][1]);
+		this.calcados = new Municipio ("calcados", lista.SetDistancias()[n][2]);
+		this.canhotinho = new Municipio("canhotinho", lista.SetDistancias()[n][3]);
+		this.capoeiras = new Municipio ("capoeiras", lista.SetDistancias()[n][4]);
+		this.garanhuns = new Municipio("garanhuns", lista.SetDistancias()[n][5]);
+		this.jucati = new Municipio ("jucati", lista.SetDistancias()[n][6]);
+		this.jupi = new Municipio("jupi", lista.SetDistancias()[n][7]);
+		this.jurema = new Municipio("jurema", lista.SetDistancias()[n][8]);
+		this.lajedo = new Municipio ("lajedo", lista.SetDistancias()[n][9]);
+		this.paranatama = new Municipio("paranatama", lista.SetDistancias()[n][10]);
+		this.saoBentoDoUna = new Municipio("saoBentoDoUna", lista.SetDistancias()[n][11]);
+		this.saoJoao = new Municipio("saoJoao", lista.SetDistancias()[n][12]);
+		
+	
+		
+		//----------------------------------------------------------------
+		
+		
 		
 		this.caetes.addAjacente(new Adjacente(capoeiras));
 		this.caetes.addAjacente(new Adjacente(garanhuns));
@@ -91,140 +98,44 @@ public class Mapa {
 		
 		this.angelim.addAjacente(new Adjacente(saoJoao));
 		this.angelim.addAjacente(new Adjacente(calcados));
-		this.angelim.addAjacente(new Adjacente(canhotinho));
+		this.angelim.addAjacente(new Adjacente(canhotinho));		
+		
 		
 	}
-
-
-	public Municipio getCaetes() {
-		return caetes;
-	}
-
-
-	public void setCaetes(Municipio caetes) {
-		this.caetes = caetes;
-	}
-
-
-	public Municipio getCapoeiras() {
-		return capoeiras;
-	}
-
-
-	public void setCapoeiras(Municipio capoeiras) {
-		this.capoeiras = capoeiras;
-	}
-
-
-	public Municipio getJucati() {
-		return jucati;
-	}
-
-
-	public void setJucati(Municipio jucati) {
-		this.jucati = jucati;
-	}
-
-
-	public Municipio getSaoBentoDoUna() {
-		return saoBentoDoUna;
-	}
-
-
-	public void setSaoBentoDoUna(Municipio saoBentoDoUna) {
-		this.saoBentoDoUna = saoBentoDoUna;
-	}
-
-
-	public Municipio getJupi() {
-		return jupi;
-	}
-
-
-	public void setJupi(Municipio jupi) {
-		this.jupi = jupi;
-	}
-
-
-	public Municipio getCalcados() {
-		return calcados;
-	}
-
-
-	public void setCalcados(Municipio calcados) {
-		this.calcados = calcados;
-	}
-
-
-	public Municipio getLajedo() {
-		return lajedo;
-	}
-
-
-	public void setLajedo(Municipio lajedo) {
-		this.lajedo = lajedo;
-	}
-
-
-	public Municipio getJurema() {
-		return jurema;
-	}
-
-
-	public void setJurema(Municipio jurema) {
-		this.jurema = jurema;
-	}
-
-
-	public Municipio getCanhotinho() {
-		return canhotinho;
-	}
-
-
-	public void setCanhotinho(Municipio canhotinho) {
-		this.canhotinho = canhotinho;
-	}
-
-
-	public Municipio getSaoJoao() {
-		return saoJoao;
-	}
-
-
-	public void setSaoJoao(Municipio saoJoao) {
-		this.saoJoao = saoJoao;
-	}
-
-
-	public Municipio getParanatama() {
-		return paranatama;
-	}
-
-
-	public void setParanatama(Municipio paranatama) {
-		this.paranatama = paranatama;
-	}
-
-
-	public Municipio getGaranhuns() {
-		return garanhuns;
-	}
-
-
-	public void setGaranhuns(Municipio garanhuns) {
-		this.garanhuns = garanhuns;
-	}
-
-
-	public Municipio getAngelim() {
-		return angelim;
-	}
-
-
-	public void setAngelim(Municipio angelim) {
-		this.angelim = angelim;
-	}	
 	
-	
-	
+	public Municipio apontaCidade(int n) {
+		switch (n) {
+		case 0:
+			return angelim; 
+		case 1:
+			return caetes;
+		case 2 :
+			return calcados;
+		case 3:
+			return canhotinho;
+		case 4:
+			return capoeiras;
+		case 5:
+			return garanhuns;
+		case 6:
+			return jucati;
+		case 7:
+			return jupi;
+		case 8:
+			return jurema;
+		case 9:
+			return lajedo;
+		case 10:
+			return paranatama;
+		case 11:
+			return saoBentoDoUna;
+		case 12:
+			return saoJoao;
+		
+		default:
+			break;
+		}
+		return null;
+	}
+
 }
