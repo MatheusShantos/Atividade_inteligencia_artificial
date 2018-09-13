@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 import br.upe.ia.estrutura.ListaOrdenada;
 import br.upe.ia.geo.Adjacente;
-import br.upe.ia.geo.Fronteira;
+import br.upe.ia.geo.Mapa;
 import br.upe.ia.geo.Municipio;
-import br.upe.ia.geo.Municipios;
+import br.upe.ia.geo.Froneteira;
 
 public class BuscaGulosa {
 	
@@ -67,11 +67,11 @@ public class BuscaGulosa {
 		System.out.println("Insira  o número correspondente a sua cidade de destino: ");
 		int cidadeDestino = entrada.nextInt();
 		
-		Municipios lista = new Municipios();
+		Froneteira lista = new Froneteira();
 		
-		Fronteira fronteira = new Fronteira(cidadeDestino);
-		BuscaGulosa busca = new BuscaGulosa(fronteira.apontaCidade(cidadeDestino));
-		busca.buscar(fronteira.apontaCidade(cidadeOrigem));
+		Mapa mapa = new Mapa(cidadeDestino);
+		BuscaGulosa busca = new BuscaGulosa(mapa.apontaCidade(cidadeDestino));
+		busca.buscar(mapa.apontaCidade(cidadeOrigem));
 		
 	}
 	

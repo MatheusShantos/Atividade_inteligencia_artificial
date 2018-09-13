@@ -3,7 +3,7 @@ package br.upe.ia.estrutura;
 import java.util.LinkedList;
 
 import br.upe.ia.estrutura.ListaOrdenada;
-import br.upe.ia.geo.Mapa;
+import br.upe.ia.geo.Froneteira;
 import br.upe.ia.geo.Municipio;
 
 public class ListaOrdenada {
@@ -62,14 +62,5 @@ private LinkedList<Municipio> municipios;
 		
 	}
 	
-	public static void main(String[] argrs) {
-		Mapa m = new Mapa();
-		ListaOrdenada l = new ListaOrdenada();
-		
-		l.inserir(m.getCaetes());
-		l.inserir(m.getCapoeiras());
-		l.inserir(m.getGaranhuns());
-		l.mostrar();		
-	}
 
 }
